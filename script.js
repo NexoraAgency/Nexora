@@ -16,105 +16,89 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
+// Enhanced intersection observer with stagger effect
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-// Hero section animations
-gsap.from('.hero-title', {
-    duration: 1.2,
-    y: 100,
-    opacity: 0,
-    ease: 'power4.out',
-    delay: 0.5
-});
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${index * 0.1}s`;
+            entry.target.classList.add('animate');
+        }
+    });
+}, observerOptions);
 
-gsap.from('.hero-subtitle', {
-    duration: 1.2,
-    y: 50,
-    opacity: 0,
-    ease: 'power4.out',
-    delay: 0.8
-});
-
-gsap.from('.hero-buttons', {
-    duration: 1,
-    y: 30,
-    opacity: 0,
-    ease: 'power3.out',
-    delay: 1.1
-});
-
-// Floating shapes animation
-gsap.to('.shape-1', {
-    y: -30,
-    duration: 2,
-    ease: 'power1.inOut',
-    yoyo: true,
-    repeat: -1
-});
-
-gsap.to('.shape-2', {
-    y: 30,
-    duration: 2.5,
-    ease: 'power1.inOut',
-    yoyo: true,
-    repeat: -1,
-    delay: 0.2
-});
-
-gsap.to('.shape-3', {
-    y: -20,
-    duration: 3,
-    ease: 'power1.inOut',
-    yoyo: true,
-    repeat: -1,
-    delay: 0.4
-});
-
-// Stats counter animation
-const stats = document.querySelectorAll('.counter');
-stats.forEach(stat => {
-    const value = stat.textContent;
-    gsap.to(stat, {
-        scrollTrigger: {
-            trigger: stat,
-            start: 'top 80%',
-            once: true
-        },
-        innerText: value,
-        duration: 2,
-        snap: { innerText: 1 }
+// Observe all sections and their children
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+    section.querySelectorAll('.expertise-item, .footer-col').forEach(item => {
+        observer.observe(item);
     });
 });
 
-// Process cards animation
-gsap.utils.toArray('.process-card').forEach((card, i) => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: 'top 80%'
-        },
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        delay: i * 0.2
-    });
-});
+// Service Type and Pricing Toggles
+document.addEventListener('DOMContentLoaded', function() {
+    // Service Type Toggle
+    const serviceButtons = document.querySelectorAll('.service-type-toggle button');
+    const pricingSections = document.querySelectorAll('.pricing-section');
 
-// Service cards animation
-gsap.utils.toArray('.service-card').forEach((card, i) => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: 'top 80%'
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        delay: i * 0.2
-    });
+    if (serviceButtons.length > 0) {
+        serviceButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update button states
+                serviceButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Show corresponding section
+                const serviceType = button.dataset.service;
+                pricingSections.forEach(section => {
+                    if (section.id === `${serviceType}-packages`) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    // Pricing Toggle (Monthly/One-time)
+    const toggleSwitch = document.querySelector('.toggle-switch');
+    const monthlySpan = document.querySelector('.pricing-toggle span:first-child');
+    const yearlySpan = document.querySelector('.pricing-toggle span:last-child');
+    const priceWrappers = document.querySelectorAll('.price-wrapper');
+
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('click', function() {
+            // Toggle active states for the switch and text
+            this.classList.toggle('yearly');
+            monthlySpan.classList.toggle('active');
+            yearlySpan.classList.toggle('active');
+            
+            // Toggle price display
+            priceWrappers.forEach(wrapper => {
+                const monthlyPrice = wrapper.querySelector('.monthly-price');
+                const yearlyPrice = wrapper.querySelector('.yearly-price');
+                
+                if (monthlyPrice && yearlyPrice) {
+                    if (this.classList.contains('yearly')) {
+                        monthlyPrice.style.transform = 'translateY(-50px)';
+                        monthlyPrice.style.opacity = '0';
+                        yearlyPrice.style.transform = 'translateY(0)';
+                        yearlyPrice.style.opacity = '1';
+                    } else {
+                        monthlyPrice.style.transform = 'translateY(0)';
+                        monthlyPrice.style.opacity = '1';
+                        yearlyPrice.style.transform = 'translateY(50px)';
+                        yearlyPrice.style.opacity = '0';
+                    }
+                }
+            });
+        });
+    }
 });
 
 // Smooth scroll for navigation links
@@ -139,17 +123,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const menuToggle = document.querySelector('.navbar-toggler');
 const navbarCollapse = document.querySelector('.navbar-collapse');
 
-menuToggle.addEventListener('click', () => {
-    if (!navbarCollapse.classList.contains('show')) {
-        gsap.from('.navbar-nav .nav-item', {
-            y: 30,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: 'power3.out'
-        });
-    }
-});
+if (menuToggle && navbarCollapse) {
+    menuToggle.addEventListener('click', () => {
+        navbarCollapse.classList.toggle('show');
+    });
+}
 
 // Form interaction animations
 const formInputs = document.querySelectorAll('.form-control');
@@ -201,38 +179,149 @@ mobileMenu.addEventListener('click', () => {
     document.body.classList.toggle('menu-open');
 });
 
-// Enhanced intersection observer with stagger effect
-const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-};
+// Add scroll to top button and handle package slider
+document.addEventListener('DOMContentLoaded', function() {
+    // Create and append scroll to top button
+    const scrollButton = document.createElement('a');
+    scrollButton.className = 'scroll-to-top';
+    scrollButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollButton.href = '#';
+    document.body.appendChild(scrollButton);
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            entry.target.style.animationDelay = `${index * 0.1}s`;
-            entry.target.classList.add('animate');
+    // Show/hide scroll button
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollButton.classList.add('visible');
+        } else {
+            scrollButton.classList.remove('visible');
         }
     });
-}, observerOptions);
 
-// Observe all sections and their children
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-    section.querySelectorAll('.expertise-item, .footer-col').forEach(item => {
-        observer.observe(item);
+    // Smooth scroll to top
+    scrollButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
+
+    // Package Slider Enhancement
+    if (window.innerWidth <= 768) {
+        const pricingRow = document.querySelector('.pricing-section .row');
+        if (pricingRow) {
+            // Force row to be a slider
+            pricingRow.style.display = 'flex';
+            pricingRow.style.flexWrap = 'nowrap';
+            pricingRow.style.overflowX = 'auto';
+
+            // Center middle package on load
+            const centerPackage = () => {
+                const packages = pricingRow.querySelectorAll('.col-lg-4');
+                if (packages.length > 1) {
+                    // Always center the Growth package (index 1)
+                    const growthIndex = 1; // Growth package is at index 1
+                    const packageWidth = packages[0].offsetWidth;
+                    const scrollPosition = (packageWidth * growthIndex) - 
+                        (pricingRow.offsetWidth - packageWidth) / 2;
+                    
+                    // Set initial scroll position
+                    pricingRow.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'instant'
+                    });
+
+                    // Update dots to show Growth package as active
+                    const dots = document.querySelectorAll('.slider-dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === growthIndex);
+                    });
+                }
+            };
+
+            // Call immediately and after a short delay to ensure proper positioning
+            centerPackage();
+            setTimeout(centerPackage, 100);
+
+            // Create and append dots
+            const dotsContainer = document.createElement('div');
+            dotsContainer.className = 'slider-dots';
+            
+            const packages = pricingRow.querySelectorAll('.col-lg-4');
+            packages.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
+                dotsContainer.appendChild(dot);
+            });
+            
+            pricingRow.parentElement.appendChild(dotsContainer);
+            const dots = dotsContainer.querySelectorAll('.slider-dot');
+
+            // Update dots based on scroll position
+            const updateDots = () => {
+                const scrollPercentage = pricingRow.scrollLeft / (pricingRow.scrollWidth - pricingRow.clientWidth);
+                const activeIndex = Math.round(scrollPercentage * (packages.length - 1));
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            };
+
+            // Scroll event listener for updating dots
+            pricingRow.addEventListener('scroll', () => {
+                requestAnimationFrame(updateDots);
+            });
+
+            // Touch events
+            let startX;
+            let scrollLeft;
+
+            pricingRow.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX - pricingRow.offsetLeft;
+                scrollLeft = pricingRow.scrollLeft;
+            });
+
+            pricingRow.addEventListener('touchend', () => {
+                const packageWidth = pricingRow.querySelector('.col-lg-4').offsetWidth;
+                const nearestPackage = Math.round(pricingRow.scrollLeft / packageWidth);
+                
+                pricingRow.scrollTo({
+                    left: nearestPackage * packageWidth,
+                    behavior: 'smooth'
+                });
+            });
+
+            pricingRow.addEventListener('touchmove', (e) => {
+                const x = e.touches[0].pageX - pricingRow.offsetLeft;
+                const walk = (x - startX);
+                pricingRow.scrollLeft = scrollLeft - walk;
+            });
+
+            // Click on dots to navigate
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const packageWidth = pricingRow.querySelector('.col-lg-4').offsetWidth;
+                    pricingRow.scrollTo({
+                        left: index * packageWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+    }
 });
 
-// Portfolio Items Animation
-gsap.utils.toArray('.portfolio-item').forEach(item => {
-    gsap.from(item, {
-        scrollTrigger: {
-            trigger: item,
-            start: 'top 80%'
-        },
-        scale: 0.8,
-        opacity: 0,
-        duration: 1
+// Update active nav link based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === 'index.html' && href === '#')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
     });
-}); 
+});

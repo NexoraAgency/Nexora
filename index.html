@@ -33,8 +33,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="Nexora Agency Logo" height="900">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="Nexora Agency Logo" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -46,6 +46,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
@@ -281,6 +284,198 @@
         </div>
     </section> -->
 
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section py-6">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-6 fw-bold mb-3" data-aos="fade-up">Our Packages</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Choose the perfect plan for your business</p>
+                </div>
+            </div>
+            <!-- Service Type Toggle -->
+            <div class="service-type-toggle">
+                <button class="active" data-service="web">Web Development</button>
+                <button data-service="marketing">Digital Marketing</button>
+            </div>
+
+            <!-- Website Development Packages -->
+            <div id="web-packages" class="pricing-section active">
+                <div class="pricing-toggle">
+                    <span class="active">Monthly</span>
+                    <div class="toggle-switch"></div>
+                    <span>One-time Payment</span>
+                </div>
+                <div class="row g-4">
+                    <!-- Basic Package -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="pricing-card basic">
+                            <div class="pricing-header">
+                                <h3>Basic Package</h3>
+                                <div class="price-wrapper">
+                                    <div class="monthly-price">
+                                        <span class="amount">LKR 20,000</span>
+                                        <span class="period">/month</span>
+                                    </div>
+                                    <div class="yearly-price">
+                                        <span class="amount">LKR 150,000</span>
+                                        <span class="period">one-time</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted">Ideal for small businesses/startups</p>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 1-5 pages</li>
+                                    <li><i class="fas fa-check"></i> Basic SEO</li>
+                                    <li><i class="fas fa-check"></i> Contact form</li>
+                                    <li><i class="fas fa-check"></i> Social media integration</li>
+                                    <li><i class="fas fa-check"></i> 2 revisions/month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Growth Package -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-card growth featured">
+                            <div class="pricing-header">
+                                <h3>Growth Package</h3>
+                                <div class="price-wrapper">
+                                    <div class="monthly-price">
+                                        <span class="amount">LKR 45,000</span>
+                                        <span class="period">/month</span>
+                                    </div>
+                                    <div class="yearly-price">
+                                        <span class="amount">LKR 225,000</span>
+                                        <span class="period">one-time</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted">Ideal for growing businesses</p>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 6-12 pages</li>
+                                    <li><i class="fas fa-check"></i> Advanced SEO</li>
+                                    <li><i class="fas fa-check"></i> CMS integration</li>
+                                    <li><i class="fas fa-check"></i> Social media & analytics</li>
+                                    <li><i class="fas fa-check"></i> 3 revisions/month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-Commerce Package -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing-card premium">
+                            <div class="pricing-header">
+                                <h3>E-Commerce Package</h3>
+                                <div class="price-wrapper">
+                                    <div class="monthly-price">
+                                        <span class="amount">LKR 75,000</span>
+                                        <span class="period">/month</span>
+                                    </div>
+                                    <div class="yearly-price">
+                                        <span class="amount">LKR 300,000</span>
+                                        <span class="period">one-time</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted">Ideal for established businesses</p>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Up to 30 product pages</li>
+                                    <li><i class="fas fa-check"></i> E-commerce setup</li>
+                                    <li><i class="fas fa-check"></i> Advanced SEO</li>
+                                    <li><i class="fas fa-check"></i> Inventory management</li>
+                                    <li><i class="fas fa-check"></i> 4 revisions/month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Marketing Packages -->
+            <div id="marketing-packages" class="pricing-section">
+                <div class="row g-4">
+                    <!-- Starter Package -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="pricing-card starter">
+                            <div class="pricing-header">
+                                <h3>Starter Package</h3>
+                                <div class="price-wrapper">
+                                    <div class="monthly-price">
+                                        <span class="amount">LKR 30,000</span>
+                                        <span class="period">/month</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 8 social media posts</li>
+                                    <li><i class="fas fa-check"></i> 1 targeted ad campaign</li>
+                                    <li><i class="fas fa-check"></i> Monthly performance report</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Growth Package -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-card growth featured">
+                            <div class="pricing-header">
+                                <h3>Growth Package</h3>
+                                <div class="price-wrapper">
+                                    <div class="monthly-price">
+                                        <span class="amount">LKR 55,000</span>
+                                        <span class="period">/month</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 12 social media posts</li>
+                                    <li><i class="fas fa-check"></i> 3 targeted ad campaigns</li>
+                                    <li><i class="fas fa-check"></i> SEO-optimized content</li>
+                                    <li><i class="fas fa-check"></i> Monthly strategy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing-card premium">
+                            <div class="pricing-header">
+                                <h3>Premium Package</h3>
+                                <div class="price-wrapper">
+                                    <div class="monthly-price">
+                                        <span class="amount">LKR 85,000</span>
+                                        <span class="period">/month</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 20 social media posts</li>
+                                    <li><i class="fas fa-check"></i> 5 ad campaigns</li>
+                                    <li><i class="fas fa-check"></i> Full funnel setup</li>
+                                    <li><i class="fas fa-check"></i> Lead generation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="pricing.html" class="btn btn-outline" data-aos="fade-up">View Full Package Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Update Contact Section -->
     <section id="contact" class="contact py-6">
         <div class="container">
@@ -332,7 +527,7 @@
                         </a>
                     </div>
                     <div class="footer-divider mb-4"></div>
-                    <p class="copyright mb-0">&copy; 2024 Nexora Agency. All rights reserved.</p>
+                    <p class="copyright mb-0">&copy; 2025 Nexora Agency. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -342,5 +537,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 </body>
 </html> 

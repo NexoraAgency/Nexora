@@ -21,6 +21,7 @@ body {
     line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--darker-bg);
+    padding-top: 80px;
 }
 
 .py-6 {
@@ -33,6 +34,11 @@ body {
     padding: 20px 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background: var(--darker-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
 }
 
 .navbar.scrolled {
@@ -40,6 +46,7 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0;
 }
 
 .navbar-nav .nav-link {
@@ -354,8 +361,8 @@ body {
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 100px;
+        padding-bottom: 20px;
     }
 
     .hero-content {
@@ -377,18 +384,20 @@ body {
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
         line-height: 1.2;
+        margin-bottom: 1rem;
     }
 
     .hero-subtitle {
-        font-size: 1.125rem;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .btn {
-        padding: 0.875rem 1.5rem;
+        padding: 0.75rem 1.5rem;
         min-height: 44px;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .scroll-down {
@@ -781,11 +790,13 @@ body {
     }
     
     .process-number {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        top: 5px;
+        right: 15px;
     }
     
     .stat-item h3 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
@@ -1210,41 +1221,6 @@ section {
     margin-bottom: 0;
 }
 
-/* Enhanced Animations */
-[data-aos] {
-    opacity: 0;
-    transition-property: transform, opacity;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-aos].aos-animate {
-    opacity: 1;
-}
-
-[data-aos="fade-up"] {
-    transform: translateY(40px);
-}
-
-[data-aos="fade-up"].aos-animate {
-    transform: translateY(0);
-}
-
-[data-aos="fade-right"] {
-    transform: translateX(-40px);
-}
-
-[data-aos="fade-right"].aos-animate {
-    transform: translateX(0);
-}
-
-[data-aos="fade-left"] {
-    transform: translateX(40px);
-}
-
-[data-aos="fade-left"].aos-animate {
-    transform: translateX(0);
-}
-
 /* Smooth transitions for all interactive elements */
 a, button, .btn, .service-item, .portfolio-item, .testimonial-card {
     transition: all 0.3s ease-in-out;
@@ -1377,5 +1353,1108 @@ a:hover, button:hover, .btn:hover {
     100% {
         opacity: 0;
         transform: rotate(45deg) translate(5px, 5px);
+    }
+}
+
+/* Pricing Page Styles */
+.pricing-section {
+    background: var(--dark-bg);
+}
+
+.pricing-section.bg-gradient {
+    background: linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+}
+
+/* Pricing Toggle */
+.pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-toggle span {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pricing-toggle span.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch.yearly::before {
+    transform: translateX(28px);
+}
+
+/* Updated Price Display */
+.price-wrapper {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+}
+
+.monthly-price,
+.yearly-price {
+    position: absolute;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.monthly-price {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.yearly-price {
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+.show-yearly .monthly-price {
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.show-yearly .yearly-price {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Updated Card Styles */
+.pricing-card {
+    background: linear-gradient(145deg, var(--card-bg), rgba(17, 17, 17, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2.5rem;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.pricing-header h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #cccccc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price .amount {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.price .period {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.pricing-features {
+    margin: 2.5rem 0;
+}
+
+.pricing-features li {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pricing-features i {
+    color: #00ff88;
+    font-size: 1rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 255, 136, 0.1);
+}
+
+.pricing-addons {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+}
+
+.pricing-addons h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.pricing-addons li {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Card Hover Effects */
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card:hover::after {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+}
+
+.pricing-card.featured {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(17, 17, 17, 0.98));
+    transform: translateY(-10px);
+}
+
+.pricing-card.featured:hover {
+    transform: translateY(-15px);
+}
+
+@media (max-width: 768px) {
+    .pricing-toggle {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 30px;
+        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+        font-size: 0.85rem;
+        max-width: fit-content;
+        margin: 0 auto 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toggle-switch {
+        width: 32px;
+        height: 18px;
+        margin: 0 0.35rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+    }
+
+    .toggle-switch::before {
+        width: 14px;
+        height: 14px;
+        left: 1px;
+        top: 1px;
+        background: var(--text-primary);
+    }
+
+    .toggle-switch.yearly::before {
+        transform: translateX(14px);
+    }
+
+    /* Center middle package on load */
+    .pricing-section .row {
+        display: flex;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem 0.5rem 2.5rem;
+        margin: 0 -1rem;
+        position: relative;
+        gap: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .pricing-section .col-lg-4 {
+        flex: 0 0 85% !important;
+        width: 85% !important;
+        padding: 0 0.75rem;
+        scroll-snap-align: center;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+
+    /* Make centered card stand out */
+    .pricing-section .col-lg-4.centered,
+    .pricing-section .col-lg-4:nth-child(2) {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Growth package specific styles */
+    .pricing-card.growth {
+        position: relative;
+        z-index: 2;
+        transform: translateY(-5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .pricing-card.growth::after {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    }
+
+    /* Improved slider dots */
+    .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0;
+        right: 0;
+        padding: 1rem 0;
+    }
+
+    .slider-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .slider-dot.active {
+        background: var(--text-primary);
+        transform: scale(1.5);
+    }
+
+    /* Show edges of adjacent packages */
+    .pricing-section::before,
+    .pricing-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4rem;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .pricing-section::before {
+        left: 0;
+        background: linear-gradient(to right, var(--dark-bg) 0%, transparent 100%);
+    }
+
+    .pricing-section::after {
+        right: 0;
+        background: linear-gradient(to left, var(--dark-bg) 0%, transparent 100%);
+    }
+}
+
+/* Service Type Toggle */
+.service-type-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 100px;
+    width: fit-content;
+    margin: 0 auto 4rem;
+}
+
+.service-type-toggle button {
+    padding: 1rem 2rem;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 100px;
+}
+
+.service-type-toggle button.active {
+    background: var(--text-primary);
+    color: var(--darker-bg);
+    font-weight: 600;
+}
+
+/* Updated Text Colors */
+.pricing-card .text-muted {
+    color: var(--text-secondary) !important;
+}
+
+/* Updated Toggle Switch */
+.pricing-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    width: fit-content;
+    margin: 0 auto 3rem;
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.toggle-switch::before {
+    width: 18px;
+    height: 18px;
+    left: 2px;
+}
+
+.toggle-switch.yearly::before {
+    transform: translateX(24px);
+}
+
+/* Hide Sections */
+.pricing-section {
+    display: none;
+}
+
+.pricing-section.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .service-type-toggle {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .service-type-toggle button {
+        width: 100%;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    /* General spacing adjustments */
+    .py-6 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Hero section mobile adjustments */
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        margin-bottom: 2rem;
+    }
+
+    /* Stats section mobile */
+    .stats {
+        padding: 2rem 0;
+    }
+
+    .stat-item {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Process section mobile */
+    .process-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .process-number {
+        font-size: 2.5rem;
+        top: 5px;
+        right: 15px;
+    }
+
+    /* Services section mobile */
+    .service-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .icon-box {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Pricing section mobile */
+    .pricing-section {
+        padding: 2rem 0;
+    }
+
+    .service-type-toggle {
+        flex-direction: row;
+        padding: 0.5rem;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .service-type-toggle button {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        width: 50%;
+    }
+
+    .pricing-toggle {
+        margin-bottom: 2rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .pricing-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .price .amount {
+        font-size: 2.5rem;
+    }
+
+    .pricing-features li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Contact section mobile */
+    .contact-form {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .form-control {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Footer mobile */
+    .footer {
+        padding: 2rem 0;
+    }
+
+    /* Navigation mobile */
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-collapse {
+        background: var(--darker-bg);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar-nav .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    /* About page mobile */
+    .about-hero {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+    .about-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .features-list .feature-item {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Buttons mobile */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Section titles mobile */
+    .display-6 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Card hover effects for mobile */
+    .service-card:hover,
+    .process-card:hover,
+    .pricing-card:hover,
+    .feature-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Improved spacing between sections */
+    section + section {
+        margin-top: 0;
+    }
+
+    /* Better mobile grid spacing */
+    .row {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-6,
+    .col-md-6 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    /* Improved mobile navigation */
+    .navbar-toggler {
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    /* Better mobile form elements */
+    input.form-control,
+    textarea.form-control {
+        margin-bottom: 1rem;
+    }
+
+    /* Mobile-specific typography */
+    h1, h2, h3 {
+        word-wrap: break-word;
+    }
+
+    /* Mobile-specific pricing toggle */
+    .toggle-switch {
+        width: 44px;
+        height: 24px;
+    }
+
+    .toggle-switch::before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .toggle-switch.yearly::before {
+        transform: translateX(20px);
+    }
+
+    /* Mobile hero content alignment */
+    .hero-content {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    /* Mobile stats alignment */
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+
+    /* Mobile contact info */
+    .contact-info {
+        margin-bottom: 2rem;
+    }
+
+    .contact-info i {
+        font-size: 1.25rem;
+    }
+
+    /* Mobile social links */
+    .social-links {
+        margin-bottom: 1.5rem;
+    }
+
+    .social-link {
+        padding: 0.75rem;
+    }
+}
+
+/* Additional tablet optimizations */
+@media (min-width: 769px) and (max-width: 991px) {
+    .py-6 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .pricing-card,
+    .service-card,
+    .process-card {
+        padding: 2rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    /* Fix hero-stats gap */
+    .hero {
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
+    .stats {
+        padding-top: 3rem;
+    }
+
+    /* Ensure no margin between sections */
+    .hero + .stats {
+        margin-top: 0;
+    }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+}
+
+/* Fix Package Slider */
+@media (max-width: 768px) {
+    .pricing-section .row {
+        display: flex;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem 0.5rem 2.5rem;
+        margin: 0 -1rem;
+        position: relative;
+        gap: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .pricing-section .row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricing-section .col-lg-4 {
+        flex: 0 0 85% !important;
+        width: 85% !important;
+        padding: 0 0.75rem;
+        scroll-snap-align: center;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+
+    /* Ensure cards are visible */
+    .pricing-card {
+        opacity: 1;
+        visibility: visible;
+        margin: 0.5rem 0;
+    }
+
+    /* Fix container padding */
+    .pricing-section .container {
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    /* Make centered card stand out */
+    .pricing-section .col-lg-4.centered,
+    .pricing-section .col-lg-4:nth-child(2) {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Growth package specific styles */
+    .pricing-card.growth {
+        position: relative;
+        z-index: 2;
+        transform: translateY(-5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .pricing-card.growth::after {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    }
+
+    /* Improved slider dots */
+    .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0;
+        right: 0;
+        padding: 1rem 0;
+    }
+
+    .slider-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .slider-dot.active {
+        background: var(--text-primary);
+        transform: scale(1.5);
+    }
+
+    /* Improved toggle switch */
+    .pricing-toggle {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 30px;
+        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+        font-size: 0.85rem;
+        max-width: fit-content;
+        margin: 0 auto 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toggle-switch {
+        width: 32px;
+        height: 18px;
+        margin: 0 0.35rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+    }
+
+    .toggle-switch::before {
+        width: 14px;
+        height: 14px;
+        left: 1px;
+        top: 1px;
+        background: var(--text-primary);
+    }
+
+    .toggle-switch.yearly::before {
+        transform: translateX(14px);
+    }
+
+    /* Show edges of adjacent packages */
+    .pricing-section::before,
+    .pricing-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4rem;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .pricing-section::before {
+        left: 0;
+        background: linear-gradient(to right, var(--dark-bg) 0%, transparent 100%);
+    }
+
+    .pricing-section::after {
+        right: 0;
+        background: linear-gradient(to left, var(--dark-bg) 0%, transparent 100%);
+    }
+}
+
+/* Smooth scrolling for package slider */
+.pricing-row {
+    scroll-behavior: smooth;
+}
+
+/* Pricing Section Mobile Styles */
+@media (max-width: 768px) {
+    /* Pricing Toggle Mobile Styles */
+    .pricing-toggle {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+        margin: 0 0.5rem;
+    }
+
+    .toggle-switch::before {
+        width: 16px;
+        height: 16px;
+        left: 2px;
+        top: 2px;
+    }
+
+    .toggle-switch.yearly::before {
+        transform: translateX(20px);
+    }
+
+    /* Mobile Slider for Packages */
+    .pricing-section .row {
+        padding: 1rem 0.5rem 2.5rem;  /* Added bottom padding for dots */
+        margin: 0 -1rem;
+        position: relative;
+        gap: 0;  /* Remove gap between cards */
+    }
+
+    .pricing-section .row::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .pricing-section .col-lg-4 {
+        min-width: 85%;
+        padding: 0 0.75rem;
+        opacity: 1;
+        scroll-snap-align: center;
+    }
+
+    /* Add gradient fade on edges */
+    .pricing-section::before,
+    .pricing-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 3rem;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .pricing-section::before {
+        left: 0;
+        background: linear-gradient(to right, var(--dark-bg) 0%, transparent 100%);
+    }
+
+    .pricing-section::after {
+        right: 0;
+        background: linear-gradient(to left, var(--dark-bg) 0%, transparent 100%);
+    }
+
+    /* Slider dots */
+    .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem 0;
+    }
+
+    .slider-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+        background: var(--text-primary);
+        transform: scale(1.2);
+    }
+
+    /* Adjust card spacing */
+    .pricing-card {
+        margin: 0.5rem 0;
+    }
+
+    /* Remove any unwanted margins */
+    .pricing-section .container {
+        padding: 0;
+    }
+}
+
+/* Remove gap between hero and stats on mobile */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding-bottom: 3rem;
+    }
+
+    .stats {
+        padding-top: 3rem;
+    }
+
+    /* Ensure no margin between sections */
+    .hero + .stats {
+        margin-top: 0;
+    }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+}
+
+/* Fix Package Slider */
+@media (max-width: 768px) {
+    .pricing-section .row {
+        display: flex;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem 0.5rem 2.5rem;
+        margin: 0 -1rem;
+        position: relative;
+        gap: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .pricing-section .row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricing-section .col-lg-4 {
+        flex: 0 0 85% !important;
+        width: 85% !important;
+        padding: 0 0.75rem;
+        scroll-snap-align: center;
+    }
+
+    /* Ensure cards are visible */
+    .pricing-card {
+        opacity: 1;
+        visibility: visible;
+        margin: 0.5rem 0;
+    }
+
+    /* Fix container padding */
+    .pricing-section .container {
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
     }
 } 
