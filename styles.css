@@ -352,16 +352,104 @@ body {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .hero-content {
+        padding-bottom: 2rem;
+    }
+
+    .hero-buttons {
+        margin-bottom: 2rem;
+    }
+
+    .py-6 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.125rem;
     }
 
     .btn {
         padding: 0.875rem 1.5rem;
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 1rem 0;
+        font-size: 1.125rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
+
+    .navbar-collapse {
+        background: var(--darker-bg);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-card:hover,
+    .process-card:hover,
+    .stat-item:hover,
+    .portfolio-item:hover .portfolio-overlay,
+    .testimonial-card:hover {
+        transform: none;
+    }
+
+    .form-control {
+        min-height: 44px;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Remove hover animations on mobile devices */
+@media (hover: none) {
+    .navbar-nav .nav-link:hover::after,
+    .btn:hover,
+    a:hover,
+    .service-card:hover,
+    .process-card:hover,
+    .stat-item:hover {
+        transform: none;
     }
 }
 
