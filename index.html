@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora Agency - Web Design & Digital Marketing</title>
+    <meta name="description" content="Nexora Agency crafts high-converting websites and powerful marketing strategies to scale your business.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Add GSAP for better animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Nexora Agency Logo" height="900">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Updated Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-gradient-overlay"></div>
+        <div class="container position-relative">
+            <div class="row min-vh-100 align-items-center">
+                <div class="col-lg-7 hero-content" data-aos="fade-up">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Transform</span> Your Digital Presence
+                    </h1>
+                    <p class="hero-subtitle">
+                        We craft high-converting websites and powerful marketing strategies that help ambitious brands scale.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            Contact Us Now
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="hero-brands">
+                        <p>Trusted by innovative companies</p>
+                        <div class="brand-logos">
+                            <img src="brand1.png" alt="Brand 1">
+                            <img src="brand2.png" alt="Brand 2">
+                            <img src="brand3.png" alt="Brand 3">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 hero-image" data-aos="fade-left">
+                    <div class="floating-shapes">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow-scroll">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Update Stats Section -->
+    <section class="stats py-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="stat-item">
+                        <h3 class="counter">10+</h3>
+                        <p>Design Concepts</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                        <h3 class="counter">100%</h3>
+                        <p>Client Focus</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                        <h3 class="counter">24/7</h3>
+                        <p>Support</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <h3 class="counter">5+</h3>
+                        <p>Creative Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process py-6">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="display-6 fw-bold mb-3">Our Process</h2>
+                    <p class="lead">How we bring your vision to life</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                    <div class="process-card">
+                        <div class="process-number">01</div>
+                        <h3>Discovery</h3>
+                        <p>Understanding your goals, audience, and requirements</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="process-card">
+                        <div class="process-number">02</div>
+                        <h3>Strategy</h3>
+                        <p>Creating a tailored plan for your success</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="process-card">
+                        <div class="process-number">03</div>
+                        <h3>Design & Development</h3>
+                        <p>Bringing your vision to life with precision</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="process-card">
+                        <div class="process-number">04</div>
+                        <h3>Launch & Support</h3>
+                        <p>Ensuring your continued success</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio py-6">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="display-6 fw-bold mb-3">Featured Work</h2>
+                    <p class="lead">Some of our best projects</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="portfolio-item">
+                        <img src="project1.jpg" alt="Project 1" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <h4>E-commerce Website</h4>
+                            <p>Web Design & Development</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more portfolio items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services py-6">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="display-6 fw-bold mb-3" data-aos="fade-up">Our Services</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">We provide comprehensive digital solutions to help your business thrive online</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Web Design</h3>
+                        <p>Custom websites that convert visitors into customers</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO</h3>
+                        <p>Boost your visibility in search results</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Reach your target audience effectively</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Branding</h3>
+                        <p>Build a strong brand identity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials py-6 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="display-6 fw-bold mb-3">Client Testimonials</h2>
+                    <p class="lead">What our clients say about us</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Nexora transformed our online presence completely. Their team is professional and delivered beyond our expectations."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h5>John Smith</h5>
+                            <p>CEO, Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Update Contact Section -->
+    <section id="contact" class="contact py-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-6 fw-bold mb-4">Let's Talk About Your Project</h2>
+                    <p class="lead mb-4">Ready to take your business to the next level? Get in touch with us today.</p>
+                    <div class="contact-info">
+                        <div class="d-flex align-items-center mb-3" data-aos="fade-up" data-aos-delay="0">
+                            <i class="fas fa-envelope me-3"></i>
+                            <p class="mb-0">hello@nexora.lk</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-phone me-3"></i>
+                            <p class="mb-0">+94 77 123 4567</p>
+                        </div>
+                        <div class="d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-map-marker-alt me-3"></i>
+                            <p class="mb-0">Colombo, Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <form class="contact-form p-4">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-12">
+                    <div class="social-links mb-4">
+                        <a href="https://www.instagram.com/direct/t/nexoraaofficial" target="_blank" rel="noopener noreferrer" class="social-link instagram-link">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="footer-divider mb-4"></div>
+                    <p class="copyright mb-0">&copy; 2024 Nexora Agency. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
